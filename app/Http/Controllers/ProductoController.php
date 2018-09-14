@@ -44,47 +44,32 @@ class ProductoController extends Controller
         $producto->name=$request->name;
         $producto->precio=$request->precio;
         $producto->descripcion=$request->descripcion;
+        $producto->imagen=$request->imagen;
         //$producto->=$request->;
 
         $producto->save();
-
-        return compact('producto');
-       
-
+        $response['status']=1;
+        $response['msg']="producto actualizado";
+        return compact('producto','response');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Producto  $producto
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Producto $producto)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Producto  $producto
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Producto $producto)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Producto  $producto
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Producto $producto)
     {
-        //
+        $this->validate($request, [
+            'id'=>'required',
+            'name'=>'required',
+            'precio'=>'required',
+        ]);
+        $producto= Producto::find($request->id);
+        $producto->name=$request->name;
+        $producto->precio=$request->precio;
+        $producto->descripcion=$request->descripcion;
+        $producto->imagen=$request->imagen;
+        //$producto->=$request->;
+        $producto->save();
+        $response['status']=1;
+        $response['msg']="producto actualizado";
+        return compact('response');
     }
 
     /**

@@ -9,7 +9,8 @@ class Producto extends Model
     protected $fillable=[
     	'name',
     	'descripcion',
-        'precio'
+        'precio',
+        'imagen'
     ];
 
     public function boleta(){

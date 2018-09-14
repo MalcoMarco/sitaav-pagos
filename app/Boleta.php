@@ -10,7 +10,9 @@ class Boleta extends Model
     	'persona_id',
     	'descripcion',
         'deuda',
-        'total'
+        'total',
+        'fecha',
+        'descuento'
     ];
 
     public function persona(){

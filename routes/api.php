@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::prefix('productos')->group(function () {
     Route::get('/', 'ProductoController@index')->middleware('cors');
-    Route::post('store', 'ProductoController@store')->middleware('cors')    ;
+    Route::post('store', 'ProductoController@store')->middleware('cors');
+    Route::post('update', 'ProductoController@update')->middleware('cors');
 });
 
