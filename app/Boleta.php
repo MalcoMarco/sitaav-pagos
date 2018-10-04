@@ -12,7 +12,8 @@ class Boleta extends Model
         'deuda',
         'total',
         'fecha',
-        'descuento'
+        'descuento',
+        'direccion'
     ];
 
     public function persona(){
@@ -20,6 +21,6 @@ class Boleta extends Model
     }
 
     public function productos(){
-        return $this->belongsToMany('App\Productos');
+        return $this->belongsToMany('App\Producto');
     }
 }
