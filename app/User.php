@@ -14,7 +14,6 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $connection = 'SITAAV';
     protected $fillable = [
         'name', 'email', 'password','role_id'
     ];
